@@ -6,6 +6,20 @@
 <title>Ojiako Victor Company</title>
 
 <style 
+input, textarea {
+
+width: 80%;
+padding: 15px;
+font-size: 18px;
+
+}
+
+
+textarea {
+
+height: 120px;
+
+}
 .project {
   background: #eeeeee;
   margin: 20px;
@@ -94,6 +108,58 @@ button {
   border-radius: 10px;
   font-size: 16px;
 }> 
+html {
+  scroll-behavior: smooth;
+}
+
+
+button {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+button:hover {
+  transform: scale(1.05);
+}
+
+
+.project {
+  transition: 0.3s;
+}
+
+
+.project:hover {
+  transform: translateY(-10px);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.card {
+  width: 90%;
+}
+
+
+@media (max-width: 600px) {
+
+h1 {
+  font-size: 35px;
+}
+
+p {
+  font-size: 18px;
+}
+
+nav a {
+  display: block;
+  margin: 10px;
+}
+
+}
 
 </style>
 
@@ -205,7 +271,7 @@ I am available for website design and content creation projects.
 
 <a href="https://wa.me/2349169464187">
 
-<button>
+<button onclick="sayHello()">
 Message Me on WhatsApp 09169464187
 </button>
 
@@ -221,6 +287,39 @@ Message Me on WhatsApp 09169464187
 
 </footer>
 
-</body>
+<section id="contact">
 
+<button>Send Message</button>
+
+<input type="text" placeholder="Your Name">
+
+<br><br>
+
+<input type="email" placeholder="Your Email">
+
+<br><br>
+
+<textarea placeholder="Your Message"></textarea>
+
+<br><br>
+
+<button onclick="sayHello()">Send Message</button>
+
+</section>
+
+<script>
+
+alert("Welcome to Ojiako Victor Company");
+
+
+function sayHello(){
+
+alert("Thanks for visiting my website I will reply you soon!");
+
+}
+
+</script>
+
+
+</body>
 </html>
