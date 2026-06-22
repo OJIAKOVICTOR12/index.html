@@ -5,7 +5,15 @@
 
 <title>Ojiako Victor Company</title>
 
-<style 
+<style> 
+#menu {
+display: none;
+}
+
+#menu a {
+display: block;
+margin: 10px;
+}
 input, textarea {
 
 width: 80%;
@@ -107,7 +115,7 @@ button {
   border: none;
   border-radius: 10px;
   font-size: 16px;
-}> 
+}
 html {
   scroll-behavior: smooth;
 }
@@ -169,15 +177,24 @@ nav a {
 <body>
 <nav>
 
+<button onclick="showMenu()">☰ Menu</button>
+
+<div id="menu">
+
 <a href="#home">Home</a>
 
 <a href="#about">About</a>
 
 <a href="#skills">Skills</a>
 
+<a href="#services">Services</a>
+
 <a href="#projects">Projects</a>
 
 <a href="#contact">Contact</a>
+
+</div>
+
 
 </nav>
 
@@ -231,6 +248,33 @@ A personal website I built using HTML and CSS.
 
 </div>
 
+<div class="card">
+
+<h2 id="services">My Services</h2>
+
+
+<h3>🌐 Website Design</h3>
+
+<p>
+I create simple and modern websites for businesses and individuals.
+</p>
+
+
+<h3>📱 Social Media Management</h3>
+
+<p>
+I help businesses create content and manage their online presence.
+</p>
+
+
+<h3>🤖 AI Content Creation</h3>
+
+<p>
+I use AI tools to create ideas, captions and digital content.
+</p>
+
+
+</div>
 
 <div class="project">
 
@@ -271,7 +315,7 @@ I am available for website design and content creation projects.
 
 <a href="https://wa.me/2349169464187">
 
-<button onclick="sayHello()">
+
 Message Me on WhatsApp 09169464187
 </button>
 
@@ -303,11 +347,46 @@ Message Me on WhatsApp 09169464187
 
 <br><br>
 
-<button onclick="sayHello()">Send Message</button>
+<button onclick="sendWhatsApp()">Send Message</button>
 
 </section>
 
 <script>
+
+function showMenu(){
+
+let menu = document.getElementById("menu");
+
+if(menu.style.display === "block"){
+
+menu.style.display = "none";
+
+}
+
+else{
+
+menu.style.display = "block";
+
+}
+
+}
+
+function sendWhatsApp(){
+
+let name = document.querySelector('input[type="text"]').value;
+
+let message = document.querySelector('textarea').value;
+
+
+let phone = "2349169464187";
+
+
+let url = "https://wa.me/" + phone + "?text=Hello my name is " + name + ". " + message;
+
+
+window.open(url, "_blank");
+
+}
 
 alert("Welcome to Ojiako Victor Company");
 
