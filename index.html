@@ -2,10 +2,16 @@
 <html>
 
 <head <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-<title>Ojiako Victor Company</title>
+<title>⭐WebVolt Engineering</title>
 
 <style> 
+h1 span {
+
+color: gold;
+
+}
 #menu {
 display: none;
 }
@@ -96,7 +102,7 @@ header {
 
 img {src="photo.jpg"
   width: 200px;
-  border-radius: 50%;
+  border-radius: 0;
   margin-top: 20px;
 }
 
@@ -169,12 +175,28 @@ nav a {
 
 }
 
-</style>
+#loader {
 
-</head>
+position: fixed;
+width: 100%;
+height: 100%;
+background: white;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 30px;
+z-index: 999;
+
+}
+
+</style>
 
 
 <body>
+<div id="loader">
+WebVolt Engineering 🚀
+</div>
+
 <nav>
 
 <button onclick="showMenu()">☰ Menu</button>
@@ -200,22 +222,42 @@ nav a {
 
 <header>
 
-<h1 id="home">Ojiako Victor</h1>
+<img src="logo.png" width="1000">
 
-<p>Web Designer | Content Creator</p>
+
+<h1 id="home">
+⭐WebVolt Engineering
+</h1>
+
+<h2>
+Building Modern Websites For Businesses 🚀
+</h2>
+
+<p>
+We design websites, create digital content, and help brands grow online.
+</p>
+
+
+<a href="#contact">
+
+<button>
+Start A Project 🚀
+</button>
+
+</a>
 
 </header>
 
-
-<img src="photo.jpg" width="250">
+<img src="photo.jpg" width="350">
 
 
 <div class="card">
 
-<h2>About Me</h2>
+<h2 id="about">About WebVolt Engineering</h2>
 
 <p>
-I create simple and modern websites for businesses and individuals.
+WebVolt Engineering is a digital brand focused on website design,
+AI assisted content creation, and helping businesses build a strong online presence.
 </p>
 
 </div>
@@ -236,7 +278,7 @@ HTML • CSS • Website Design • AI Content Creation
 
 <div class="project">
 
-<img src="website.jpg" width="250">
+<img src="website.jpg" width="550">
 
 <h3>🖥️ Personal Portfolio Website</h3>
 
@@ -278,7 +320,7 @@ I use AI tools to create ideas, captions and digital content.
 
 <div class="project">
 
-<img src="busin.jpg" width="250">
+<img src="busin.jpg" width="450">
 
 <h3>🌐 Business Website</h3>
 
@@ -347,6 +389,15 @@ Message Me on WhatsApp 09169464187
 
 <br><br>
 
+<div class="card">
+
+<h2>Connect With Me</h2>
+
+<a href="https://t.me/t.me/Militant422">
+Telegram</a>
+
+</div>
+
 <button onclick="sendWhatsApp()">Send Message</button>
 
 </section>
@@ -388,12 +439,18 @@ window.open(url, "_blank");
 
 }
 
-alert("Welcome to Ojiako Victor Company");
+alert("Welcome to ⭐WebVolt Engineering");
 
 
 function sayHello(){
 
 alert("Thanks for visiting my website I will reply you soon!");
+
+}
+
+window.onload = function(){
+
+document.getElementById("loader").style.display = "none";
 
 }
 
