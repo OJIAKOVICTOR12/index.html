@@ -189,12 +189,177 @@ z-index: 999;
 
 }
 
+.spinner {
+
+width: 60px;
+height: 60px;
+border: 8px solid #ddd;
+border-top: 8px solid black;
+border-radius: 50%;
+animation: spin 3s linear infinite;
+
+}
+
+
+#loader {
+
+position: fixed;
+width: 100%;
+height: 100%;
+background: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 20px;
+z-index: 999;
+
+}
+
+
+@keyframes spin {
+
+0% {
+transform: rotate(0deg);
+}
+
+100% {
+transform: rotate(360deg);
+}
+
+footer {
+
+text-align: center;
+padding: 20px;
+margin-top: 40px;
+
+}
+
+.dark-mode {
+
+background-color: #111 !important;
+color: white !important;
+
+}
+
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p {
+
+color: white !important;
+
+}
+
+
+.dark-mode .card {
+
+background-color: #222 !important;
+
+}
+
+
+.dark-mode button {
+
+background-color: black;
+color: white;
+
+}
+
+@media (max-width: 600px) {
+
+
+h1 {
+font-size: 35px;
+}
+
+
+h2 {
+font-size: 22px;
+}
+
+
+img {
+width: 200px;
+}
+
+
+button {
+
+font-size: 16px;
+padding: 10px;
+
+}
+
+
+.card {
+
+margin: 10px;
+
+}
+
+
+}
+html {
+
+scroll-behavior: smooth;
+
+}
+
+button:hover {
+
+transform: scale(1.05);
+cursor: pointer;
+
+}
+
+.card:hover {
+
+transform: translateY(-10px);
+transition: 0.3s;
+
+}
+
+.card img {
+
+width: 100%;
+max-width: 300px;
+border-radius: 10px;
+transition: 0.3s;
+
+}
+
+
+.card img:hover {
+
+transform: scale(1.05);
+
+}
+
+#topBtn {
+
+position: fixed;
+bottom: 20px;
+right: 20px;
+padding: 12px;
+border-radius: 50%;
+cursor: pointer;
+
+}
+
 </style>
 
 
 <body>
 <div id="loader">
+
+<div class="spinner"></div>
+
+<h2>
 WebVolt Engineering 🚀
+</h2>
+
 </div>
 
 <nav>
@@ -246,6 +411,10 @@ Start A Project 🚀
 
 </a>
 
+<button onclick="darkMode()">
+🌙 Dark Mode
+</button>
+
 </header>
 
 <img src="photo.jpg" width="350">
@@ -275,6 +444,59 @@ HTML • CSS • Website Design • AI Content Creation
 
 <h2 id="projects">My Projects</h2>
 
+<div class="card">
+
+<h2>Why Choose WebVolt Engineering?</h2>
+
+<p>
+🚀 Modern Website Design
+</p>
+
+<p>
+⚡ Fast and Responsive Websites
+</p>
+
+<p>
+💡 Creative Digital Solutions
+</p>
+
+<p>
+🤝 Reliable Support For Clients
+</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="projects">
+My Projects
+</h2>
+
+
+<img src="project1.png" width="250">
+
+<h3>
+Business Website
+</h3>
+
+<p>
+A modern website design for a business.
+</p>
+
+
+
+<img src="project2.png" width="250">
+
+<h3>
+Portfolio Website
+</h3>
+
+<p>
+A personal website to showcase skills and services.
+</p>
+
+
+</div>
 
 <div class="project">
 
@@ -402,6 +624,22 @@ Telegram</a>
 
 </section>
 
+<footer>
+
+<h3>
+⭐WebVolt Engineering
+</h3>
+
+<p>
+© 2026 WebVolt Engineering. All Rights Reserved.
+</p>
+
+<p>
+Website Design • Digital Solutions • Engineering
+</p>
+
+</footer>
+
 <script>
 
 function showMenu(){
@@ -448,14 +686,35 @@ alert("Thanks for visiting my website I will reply you soon!");
 
 }
 
-window.onload = function(){
+setTimeout(function(){
 
 document.getElementById("loader").style.display = "none";
+
+}, 3000);
+
+function darkMode(){
+
+document.body.classList.toggle("dark-mode");
+
+}
+
+function goTop(){
+
+window.scrollTo({
+
+top: 0,
+
+behavior: "smooth"
+
+});
 
 }
 
 </script>
 
+<button onclick="goTop()" id="topBtn">
+⬆️ Top
+</button>
 
 </body>
 </html>
