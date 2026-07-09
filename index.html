@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
 
-<head <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
 
 <title>⭐WebVolt Engineering</title>
+
+</head>
 
 <style> 
 h1 span {
@@ -41,7 +52,6 @@ height: 120px;
   border-radius: 15px;
 }
 body {
-  body {
   font-size: 30px;
 }
 
@@ -94,13 +104,7 @@ button {
   padding: 18px 30px;
 }
 
-header {
-  background-color: darkblue;
-  color: white;
-  padding: 30px;
-}
-
-img {src="photo.jpg"
+img {
   width: 200px;
   border-radius: 0;
   margin-top: 20px;
@@ -314,10 +318,11 @@ cursor: pointer;
 
 }
 
-.card:hover {
+.card:hover{
 
-transform: translateY(-10px);
-transition: 0.3s;
+transform:translateY(-10px) scale(1.02);
+
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
 
 }
 
@@ -432,6 +437,279 @@ transition:0.3s;
 
 }
 
+.card p{
+
+line-height: 1.8;
+
+}
+
+.stats{
+
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+text-align:center;
+gap:20px;
+
+}
+
+.stats div{
+
+padding:20px;
+
+}
+
+.stats h3{
+
+font-size:35px;
+margin-bottom:10px;
+color:#007BFF;
+
+}
+
+.card h3{
+
+margin-top:20px;
+
+}
+
+.card p{
+
+line-height:1.8;
+
+}
+
+.card h3{
+
+color:#007BFF;
+
+}
+
+.card p{
+
+font-size:18px;
+
+}
+
+.card img{
+
+display:block;
+margin:20px auto;
+border-radius:12px;
+
+}
+
+.card h3{
+
+color:#007BFF;
+margin-top:20px;
+
+}
+
+.card p{
+
+line-height:1.8;
+
+}
+
+.card h2{
+
+margin-bottom:15px;
+
+}
+
+.card p{
+
+text-align:justify;
+
+}
+
+.card{
+
+padding:25px;
+margin:20px 0;
+border-radius:15px;
+
+}
+
+.card p{
+
+font-size:18px;
+margin:10px 0;
+
+}
+
+.card p{
+
+padding:8px 0;
+
+}
+
+.card button{
+
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+.card button:hover{
+
+transform:scale(1.05);
+
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+}
+
+i{
+
+color:#007BFF;
+margin-right:8px;
+font-size:20px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,0.2);
+
+box-shadow:0 8px 32px rgba(0,0,0,0.2);
+
+}
+
+header{
+    position: relative;
+    overflow: hidden;
+    height: 60vh;
+    color: white;
+}
+
+#bg-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-content{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-top: 200px;
+}
+
+header{
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    color: white;
+}
+
+#bg-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+header > *:not(#bg-video){
+    position: relative;
+    z-index: 1;
+}
+
+#bg-video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-1;
+}
+header{
+    position:relative;
+    overflow:hidden;
+    min-height:500px;
+}
+
+header > *:not(#bg-video){
+    position:relative;
+    z-index:1;
+}
+header{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+}
+
+#bg-video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.55);
+    z-index:-1;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content img{
+    width:180px;
+    margin-bottom:20px;
+}
+
+.hero-content h1{
+    font-size:60px;
+}
+
+.hero-content h2{
+    font-size:30px;
+}
+
+.hero-content p{
+    max-width:700px;
+    margin:20px 0;
+}
 </style>
 
 
@@ -469,50 +747,46 @@ WebVolt Engineering 🚀
 
 </nav>
 
-<header>
+<header id="home">
 
-<a href="Ojiako_Victor_Chidrea_CV.pdf" download>
-<button>
-📄 Download My CV
-</button>
-</a>
+    <video autoplay muted loop id="bg-video">
+        <source src="hero-video.mp4" type="video/mp4">
+    </video>
 
-<img src="logo.png" width="1000">
+    <div class="hero-content">
 
+        <img src="logo.png" width="180">
 
-<h1 id="home">
-⭐WebVolt Engineering
-</h1>
+        <h1>⭐ WebVolt Engineering</h1>
 
-<h2>
-Building Modern Websites For Businesses 🚀
-</h2>
+        <h2>Building Modern Websites For Businesses 🚀</h2>
 
-<p>
-We design websites, create digital content, and help brands grow online.
-</p>
+        <p>
+            We design websites, create digital content, and help brands grow online.
+        </p>
 
+        <a href="#contact">
+            <button>🚀 Start A Project</button>
+        </a>
 
-<a href="#contact">
+        <a href="Ojiako_Victor_Chidrea_CV.pdf" download>
+            <button>📄 Download My CV</button>
+        </a>
 
-<button>
-Start A Project 🚀
-</button>
+        <button onclick="darkMode()">
+            🌙 Dark Mode
+        </button>
 
-</a>
+        <p>
+            Visitors:
+            <span id="count">0</span>
+        </p>
 
-<p>
-Visitors:
-<span id="count">0</span>
-</p>
-
-<button onclick="darkMode()">
-🌙 Dark Mode
-</button>
+    </div>
 
 </header>
 
-<img src="photo.jpg" width="350">
+<img src="Ben.jpg" width="350">
 
 
 <div class="card">
@@ -526,25 +800,20 @@ AI assisted content creation, and helping businesses build a strong online prese
 
 </div>
 
-
 <div class="card">
 
-<h2 id="skills">My Skills</h2>
+<h2>My Skills</h2>
 
-<p>HTML</p>
-<progress value="95" max="100"></progress>
+<p><i class="fa-brands fa-html5"></i> HTML5</p>
 
-<p>CSS</p>
-<progress value="90" max="100"></progress>
+<p><i class="fa-brands fa-css3-alt"></i> CSS3</p>
 
-<p>JavaScript</p>
-<progress value="80" max="100"></progress>
+<p><i class="fa-brands fa-js"></i> JavaScript</p>
 
-<p>Responsive Design</p>
-<progress value="85" max="100"></progress>
+<p><i class="fa-solid fa-mobile-screen"></i> Responsive Design</p>
 
-<p>Electrical Engineering</p>
-<progress value="100" max="100"></progress>
+<p><i class="fa-brands fa-github"></i> Git & GitHub</p>
+
 </div>
 
 <p>
@@ -627,29 +896,15 @@ A personal website I built using HTML and CSS.
 
 <div class="card">
 
-<h2 id="services">My Services</h2>
+<h2>Our Services</h2>
 
+<p><i class="fa-solid fa-code"></i> Website Development</p>
 
-<h3>🌐 Website Design</h3>
+<p><i class="fa-solid fa-laptop-code"></i> Portfolio Websites</p>
 
-<p>
-I create simple and modern websites for businesses and individuals.
-</p>
+<p><i class="fa-solid fa-store"></i> Business Websites</p>
 
-
-<h3>📱 Social Media Management</h3>
-
-<p>
-I help businesses create content and manage their online presence.
-</p>
-
-
-<h3>🤖 AI Content Creation</h3>
-
-<p>
-I use AI tools to create ideas, captions and digital content.
-</p>
-
+<p><i class="fa-solid fa-screwdriver-wrench"></i> Website Maintenance</p>
 
 </div>
 
@@ -683,21 +938,213 @@ Creating digital content and social media ideas.
 
 <div class="card">
 
+<h2>Who I Work With</h2>
+
+<p>🏪 Small Businesses</p>
+
+<p>🛒 Online Stores</p>
+
+<p>👨‍💼 Entrepreneurs</p>
+
+<p>🎓 Students & Professionals</p>
+
+<p>🏢 Companies Looking for a Modern Website</p>
+
+</div>
+
+<div class="card">
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How long does it take to build a website?</h3>
+<p>Most websites can be completed within a few days, depending on the project.</p>
+
+<h3>Do you create mobile-friendly websites?</h3>
+<p>Yes. Every website is designed to work well on phones, tablets, and computers.</p>
+
+<h3>Can you redesign an existing website?</h3>
+<p>Yes. I can improve the design, speed, and appearance of your current website.</p>
+
+<h3>How can I contact you?</h3>
+<p>You can contact me through WhatsApp, Telegram, or the contact form on this website.</p>
+
+</div>
+
+<div class="card">
+
+<h2>Our Services & Pricing</h2>
+
+<h3>🌐 Basic Website</h3>
+<p>Starting from ₦30,000</p>
+
+<h3>💼 Business Website</h3>
+<p>Starting from ₦80,000</p>
+
+<h3>🛒 E-commerce Website</h3>
+<p>Contact for a custom quote</p>
+
+<h3>⚡ Website Maintenance</h3>
+<p>Available Monthly</p>
+
+</div>
+
+<div class="card">
+
+<h2>Sample Testimonials</h2>
+
+<p><strong>⭐ Example Review</strong></p>
+
+<p>
+"WebVolt Engineering delivers modern, clean, and user-friendly website designs with a strong focus on quality and professionalism."
+</p>
+
+<p><em>— Sample Testimonial</em></p>
+
+<hr>
+
+<p><strong>⭐ Example Review</strong></p>
+
+<p>
+"I appreciate the attention to detail and the commitment to creating websites that are both attractive and responsive on all devices."
+</p>
+
+<p><em>— Sample Testimonial</em></p>
+
+<hr>
+
+<p><strong>⭐ Example Review</strong></p>
+
+<p>
+"From planning to design, WebVolt Engineering aims to provide reliable digital solutions that help businesses build a strong online presence.Fast communication and excellent attention to detail. I would gladly recommend WebVolt Engineering."
+</p>
+
+<p><em>— Sample Testimonial</em></p>
+
+</div>
+
+<div class="card">
+
+<h2>Meet the Founder</h2>
+
+<img src="photo.jpg" alt="Ojiako Victor" width="300">
+
+<h3>Ojiako Victor Chidrea</h3>
+
+<p>
+Founder of ⭐ WebVolt Engineering
+</p>
+
+<p>
+I am passionate about building modern, responsive, and professional websites that help businesses grow online. My goal is to provide high-quality web solutions with creativity, honesty, and excellent customer service.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Our Process</h2>
+
+<h3>1️⃣ Consultation</h3>
+<p>We discuss your ideas, goals, and website requirements.</p>
+
+<h3>2️⃣ Planning</h3>
+<p>We create a clear plan and choose the best design for your project.</p>
+
+<h3>3️⃣ Development</h3>
+<p>We build a fast, modern, and responsive website using the latest technologies.</p>
+
+<h3>4️⃣ Testing</h3>
+<p>Every page is carefully tested to ensure everything works perfectly.</p>
+
+<h3>5️⃣ Launch</h3>
+<p>Your website is published online and ready for the world to see.</p>
+
+<h3>6️⃣ Support</h3>
+<p>We provide ongoing support and updates whenever you need them.</p>
+
+</div>
+
+<div class="card">
+
+<h2>Our Vision</h2>
+
+<p>
+To become one of Nigeria's most trusted web development and engineering brands, creating innovative digital solutions that help businesses grow and succeed worldwide.
+</p>
+
+<h2>Our Mission</h2>
+
+<p>
+To deliver modern, responsive, secure, and high-quality websites while providing excellent customer service, honesty, creativity, and continuous innovation.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Why Clients Choose WebVolt Engineering</h2>
+
+<p>✅ Professional & Modern Website Design</p>
+
+<p>⚡ Fast and Responsive Websites</p>
+
+<p>🔒 Secure and Reliable Solutions</p>
+
+<p>🎨 Creative and Attractive Designs</p>
+
+<p>📱 Mobile-Friendly on All Devices</p>
+
+<p>🤝 Friendly Customer Support</p>
+
+<p>🚀 Continuous Improvement and Innovation</p>
+
+</div>
+
+<div class="card">
+
+<h2>Our Journey</h2>
+
+<p>🚀 2026 – WebVolt Engineering was founded with a vision to build modern and professional websites.</p>
+
+<p>💻 Built our first portfolio website and began learning advanced web development.</p>
+
+<p>🌍 Working towards serving clients across Nigeria and beyond.</p>
+
+<p>🎯 Future Goal – Become one of Africa's leading web development and engineering companies.</p>
+
+</div>
+
+<div class="card">
+
+<h2>Ready to Build Your Dream Website?</h2>
+
+<p>
+Let's work together to create a fast, modern, and professional website that helps your business grow.
+</p>
+
+<a href="#contact">
+
+<button>
+🚀 Get Started Today
+</button>
+
+</a>
+
+</div>
+
 <h2 id="contact">Contact Me</h2>
 
 <p>
 I am available for website design and content creation projects.
 </p>
 
+<p><i class="fa-solid fa-phone"></i> 09169464187</p>
 
-<a href="https://wa.me/2349169464187">
+<p><i class="fa-solid fa-envelope"></i> ojiakovictor1@gmail.com</p>
 
+<p><i class="fa-brands fa-telegram"></i> Telegram</p>
 
-Message Me on WhatsApp 09169464187
-</button>
-
-</a>
-
+<p><i class="fa-brands fa-whatsapp"></i> WhatsApp</p>
 
 </div>
 
@@ -884,6 +1331,8 @@ card.classList.add("show");
 <button onclick="goTop()" id="topBtn">
 ⬆️ Top
 </button>
+
+<script src="script.js"></script>
 
 </body>
 </html>
