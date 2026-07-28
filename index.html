@@ -17,10 +17,14 @@
 
 </head>
 
-<style> 
-/* ===========================
-   RESET
-=========================== */
+<style>
+/*====================================================
+        WEBVOLT ENGINEERING PROFESSIONAL CSS
+====================================================*/
+
+/*======================
+RESET
+=======================*/
 
 *{
     margin:0;
@@ -34,15 +38,15 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#111;
+    background:#0b0b0b;
     color:#fff;
+    line-height:1.8;
     overflow-x:hidden;
-    line-height:1.7;
 }
 
-/* ===========================
-   HEADER
-=========================== */
+/*======================
+BACKGROUND VIDEO
+=======================*/
 
 header{
     position:relative;
@@ -56,8 +60,7 @@ header{
 
 #bg-video{
     position:absolute;
-    top:0;
-    left:0;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
@@ -68,13 +71,16 @@ header::before{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,.55);
+    background:linear-gradient(
+    rgba(0,0,0,.70),
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.75));
     z-index:-1;
 }
 
-/* ===========================
-   NAVIGATION
-=========================== */
+/*======================
+NAVBAR
+=======================*/
 
 .navbar{
     position:fixed;
@@ -85,134 +91,254 @@ header::before{
     justify-content:space-between;
     align-items:center;
     padding:18px 45px;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(12px);
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(15px);
+    box-shadow:0 8px 30px rgba(0,0,0,.35);
     z-index:9999;
 }
 
+/*======================
+LOGO
+=======================*/
+
 .logo{
-    font-size:28px;
+    font-size:30px;
+    font-weight:700;
     color:#00BFFF;
-    font-weight:bold;
+    letter-spacing:1px;
+    animation:logoGlow 2s infinite alternate;
 }
+
+@keyframes logoGlow{
+
+0%{
+text-shadow:0 0 8px #00BFFF;
+}
+
+50%{
+text-shadow:0 0 20px #00BFFF,
+            0 0 35px #00BFFF;
+}
+
+100%{
+text-shadow:0 0 10px cyan;
+}
+
+}
+
+/*======================
+MENU
+=======================*/
 
 .nav-links{
     display:flex;
-    gap:28px;
+    gap:30px;
 }
 
 .nav-links a{
-    color:white;
     text-decoration:none;
+    color:white;
     font-weight:600;
-    transition:.3s;
+    transition:.35s;
+    position:relative;
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-5px;
+
+width:0;
+
+height:2px;
+
+background:#00BFFF;
+
+transition:.35s;
+
 }
 
 .nav-links a:hover{
-    color:#00BFFF;
+
+color:#00BFFF;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
 }
 
 .menu-btn{
     display:none;
     font-size:30px;
+    color:white;
     cursor:pointer;
 }
 
-/* ===========================
-   HERO
-=========================== */
+/*======================
+HERO
+=======================*/
 
 .hero-content{
     width:100%;
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
-    padding:20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
     text-align:center;
+    padding:20px;
 }
 
 .hero-content img{
     width:180px;
-    border-radius:20px;
+    border-radius:25px;
     margin-bottom:25px;
-    box-shadow:0 15px 35px rgba(0,0,0,.5);
+    border:4px solid rgba(255,255,255,.25);
+    box-shadow:0 15px 45px rgba(0,191,255,.45);
+    transition:.5s;
+}
+
+.hero-content img:hover{
+    transform:scale(1.05) rotate(2deg);
 }
 
 .hero-content h1{
-    font-size:60px;
-    margin-bottom:10px;
+    font-size:65px;
+    margin-bottom:15px;
+    text-shadow:0 0 25px rgba(0,191,255,.45);
 }
+
+/*======================
+STAR ANIMATION
+=======================*/
+
+.hero-content h1::before{
+    content:"⭐ ";
+    animation:starFlash 1.5s infinite;
+}
+
+@keyframes starFlash{
+
+0%{
+opacity:1;
+transform:scale(1);
+}
+
+50%{
+opacity:.4;
+transform:scale(1.4);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+/*======================
+TYPING TEXT
+=======================*/
 
 .hero-content h2{
     color:#00BFFF;
     font-size:32px;
-    margin-bottom:15px;
+    margin-bottom:18px;
+    min-height:45px;
+}
+
+.cursor{
+    color:white;
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+
+50%{
+opacity:0;
+}
+
 }
 
 .hero-content p{
-    max-width:760px;
+    max-width:820px;
     margin:auto;
-    margin-bottom:25px;
     font-size:22px;
+    line-height:1.9;
 }
 
-/* ===========================
-   BUTTONS
-=========================== */
+/*======================
+BUTTONS
+=======================*/
 
 button,
 .hero-btn{
 
-    padding:16px 38px;
-    border:none;
-    border-radius:50px;
-    background:linear-gradient(135deg,#007BFF,#00BFFF);
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    transition:.35s;
-    margin:8px;
-    font-weight:bold;
+padding:16px 40px;
+
+border:none;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,#007BFF,#00BFFF);
+
+color:white;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.4s;
+
+box-shadow:0 10px 25px rgba(0,191,255,.30);
+
+margin:10px;
 
 }
 
 button:hover,
 .hero-btn:hover{
 
-transform:translateY(-5px);
+transform:translateY(-6px) scale(1.04);
 
-box-shadow:0 15px 30px rgba(0,191,255,.45);
+box-shadow:0 20px 40px rgba(0,191,255,.55);
 
 }
 
-/* ===========================
-   CARDS
-=========================== */
+/*======================
+CARDS
+=======================*/
 
 .card{
 
-width:min(95%,1000px);
+width:min(94%,1050px);
 
-margin:40px auto;
+margin:45px auto;
 
-padding:35px;
+padding:40px;
 
-background:rgba(255,255,255,.10);
+background:rgba(255,255,255,.08);
 
-border-radius:22px;
+border:1px solid rgba(255,255,255,.15);
 
-backdrop-filter:blur(14px);
+border-radius:25px;
 
-box-shadow:0 15px 35px rgba(0,0,0,.35);
+backdrop-filter:blur(16px);
 
-transition:.4s;
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+transition:.5s;
 
 opacity:0;
 
-transform:translateY(60px);
+transform:translateY(70px);
 
 }
 
@@ -226,298 +352,273 @@ transform:translateY(0);
 
 .card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-10px);
+
+box-shadow:0 25px 55px rgba(0,191,255,.20);
 
 }
 
-.card img{
+.card h2{
 
-width:100%;
+font-size:34px;
 
-max-width:450px;
+margin-bottom:20px;
 
-display:block;
-
-margin:25px auto;
-
-border-radius:18px;
-
-}
-
-/* ===========================
-   STATS
-=========================== */
-
-.stats{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:30px;
-
-}
-
-.stats div{
-
-min-width:180px;
-
-}
-
-/* ===========================
-   INPUTS
-=========================== */
-
-input,
-textarea{
-
-width:100%;
-
-max-width:650px;
-
-padding:15px;
-
-margin:12px auto;
-
-display:block;
-
-border:none;
-
-border-radius:12px;
-
-font-size:16px;
-
-}
-
-textarea{
-
-min-height:150px;
-
-resize:vertical;
-
-}
-
-/* ===========================
-   WHATSAPP
-=========================== */
-
-#whatsapp{
-
-position:fixed;
-
-left:20px;
-
-bottom:20px;
-
-width:65px;
-
-height:65px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:30px;
-
-text-decoration:none;
-
-color:white;
-
-z-index:9999;
-
-box-shadow:0 8px 20px rgba(0,0,0,.4);
-
-}
-
-/* ===========================
-   AI CHAT
-=========================== */
-
-#ai-chat{
-
-position:fixed;
-
-right:20px;
-
-bottom:20px;
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-background:#007BFF;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:30px;
-
-cursor:pointer;
-
-box-shadow:0 10px 25px rgba(0,0,0,.4);
-
-z-index:9999;
-
-transition:.3s;
-
-}
-
-#ai-chat:hover{
-
-transform:scale(1.1);
-
-}
-
-#chat-box{
-
-display:none;
-
-position:fixed;
-
-right:20px;
-
-bottom:100px;
-
-width:340px;
-
-max-width:92%;
-
-background:white;
-
-color:#111;
-
-padding:20px;
-
-border-radius:18px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.45);
-
-z-index:99999;
-
-}
-
-#chat-messages{
-    height:250px;
-    overflow-y:auto;
-    overflow-x:hidden;
-    padding-right:8px;
-    margin:15px 0;
-    text-align:left;
-    scroll-behavior:smooth;
-}
-
-/* ===========================
-   FOOTER
-=========================== */
-
-footer{
-
-margin-top:60px;
-
-padding:35px;
-
-background:#000;
+color:#00BFFF;
 
 text-align:center;
 
 }
 
-/* ===========================
-   MOBILE
-=========================== */
+.card p{
 
-@media(max-width:768px){
+font-size:18px;
 
-.navbar{
-
-padding:15px 20px;
+margin:15px 0;
 
 }
 
-.nav-links{
-
-display:none;
-
-position:absolute;
-
-top:70px;
-
-right:15px;
-
-background:#111;
-
-width:220px;
-
-border-radius:12px;
-
-flex-direction:column;
-
-padding:15px;
-
-}
-
-.nav-links a{
-
-padding:12px;
-
-}
-
-.menu-btn{
+.card img{
 
 display:block;
 
-}
+width:100%;
 
-.hero-content h1{
+max-width:450px;
 
-font-size:38px;
+margin:30px auto;
 
-}
+border-radius:18px;
 
-.hero-content h2{
+transition:.5s;
 
-font-size:22px;
-
-}
-
-.hero-content p{
-
-font-size:17px;
+box-shadow:0 10px 30px rgba(0,0,0,.45);
 
 }
+
+.card img:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 20px 45px rgba(0,191,255,.45);
+
+}
+
+/*======================
+STATS
+=======================*/
 
 .stats{
-
-flex-direction:column;
-
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:35px;
+    margin-top:30px;
 }
+
+.stats div{
+    min-width:180px;
+    padding:25px;
+    border-radius:18px;
+    background:rgba(255,255,255,.08);
+    transition:.4s;
+    text-align:center;
+}
+
+.stats div:hover{
+    transform:translateY(-8px);
+    background:rgba(0,191,255,.15);
+}
+
+.counter{
+    font-size:42px;
+    color:#00BFFF;
+    font-weight:bold;
+}
+
+/*======================
+INPUTS
+=======================*/
+
+input,
+textarea{
+    width:100%;
+    max-width:650px;
+    display:block;
+    margin:15px auto;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    font-size:16px;
+    font-family:'Poppins',sans-serif;
+    background:#f4f4f4;
+    transition:.3s;
+}
+
+input:focus,
+textarea:focus{
+    box-shadow:0 0 18px rgba(0,191,255,.45);
+    transform:scale(1.02);
+}
+
+textarea{
+    min-height:170px;
+    resize:vertical;
+}
+
+/*======================
+WHATSAPP BUTTON
+=======================*/
+
+#whatsapp{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:50%;
+    font-size:32px;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+    z-index:9999;
+    transition:.4s;
+}
+
+#whatsapp:hover{
+    transform:scale(1.15);
+}
+
+/*======================
+AI BUTTON
+=======================*/
+
+#ai-chat{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#007BFF,#00BFFF);
+    border-radius:50%;
+    font-size:30px;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    transition:.4s;
+    z-index:9999;
+}
+
+#ai-chat:hover{
+    transform:scale(1.15) rotate(10deg);
+}
+
+/*======================
+AI CHAT BOX
+=======================*/
 
 #chat-box{
-
-right:10px;
-
-left:10px;
-
-width:auto;
-
+    display:none;
+    position:fixed;
+    right:20px;
+    bottom:95px;
+    width:360px;
+    max-width:95%;
+    background:white;
+    color:#111;
+    border-radius:22px;
+    padding:18px;
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
+    z-index:99999;
 }
 
+#chat-messages{
+    height:300px;
+    overflow-y:auto;
+    padding:10px;
+    margin-bottom:15px;
+    scroll-behavior:smooth;
 }
+
+.message{
+    display:flex;
+    margin:12px 0;
+}
+
+.user-message{
+    justify-content:flex-end;
+}
+
+.ai-message{
+    justify-content:flex-start;
+}
+
+.chat-icon{
+    font-size:22px;
+    margin:0 8px;
+}
+
+.bubble{
+    max-width:75%;
+    padding:12px 15px;
+    border-radius:18px;
+    font-size:15px;
+    line-height:1.6;
+    word-wrap:break-word;
+}
+
+.user-message .bubble{
+    background:#007BFF;
+    color:white;
+    border-bottom-right-radius:6px;
+}
+
+.ai-message .bubble{
+    background:#f2f2f2;
+    color:#111;
+    border-bottom-left-radius:6px;
+}
+
+#chat-messages::-webkit-scrollbar{
+    width:6px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb{
+    background:#00BFFF;
+    border-radius:20px;
+}
+
+/*======================
+FOOTER
+=======================*/
+
+footer{
+    margin-top:60px;
+    padding:40px;
+    background:#050505;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer h3{
+    color:#00BFFF;
+    margin-bottom:15px;
+}
+
+/*======================
+DARK/LIGHT MODE
+=======================*/
+
 .dark-mode{
-    background:#f5f5f5;
+    background:#f5f7fb;
     color:#111;
 }
 
@@ -527,12 +628,17 @@ width:auto;
 }
 
 .dark-mode .navbar{
-    background:#222;
+    background:#ffffff;
 }
 
-.dark-mode #chat-box{
-    background:white;
+.dark-mode .navbar a{
     color:#111;
+}
+
+.dark-mode .hero-content h1,
+.dark-mode .hero-content h2,
+.dark-mode .card h2{
+    color:#007BFF;
 }
 
 .dark-mode input,
@@ -540,31 +646,124 @@ width:auto;
     background:white;
     color:#111;
 }
+
+.dark-mode footer{
+    background:#e8e8e8;
+    color:#111;
+}
+
+.dark-mode #chat-box{
+    background:white;
+    color:#111;
+}
+
+/*======================
+TOP BUTTON
+=======================*/
+
+#topBtn{
+    display:none;
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    padding:15px 20px;
+    border:none;
+    border-radius:50px;
+    background:#007BFF;
+    color:white;
+    cursor:pointer;
+    z-index:999;
+}
+
+#topBtn:hover{
+    background:#00BFFF;
+}
+
+/*======================
+MOBILE
+=======================*/
+
+@media(max-width:768px){
+
+.navbar{
+    padding:15px 20px;
+}
+
+.nav-links{
+    display:none;
+    position:absolute;
+    top:70px;
+    right:15px;
+    width:220px;
+    background:#111;
+    border-radius:15px;
+    flex-direction:column;
+    padding:15px;
+}
+
+.nav-links a{
+    padding:12px;
+}
+
+.menu-btn{
+    display:block;
+}
+
+.hero-content h1{
+    font-size:40px;
+}
+
+.hero-content h2{
+    font-size:24px;
+}
+
+.hero-content p{
+    font-size:17px;
+}
+
+.stats{
+    flex-direction:column;
+}
+
+#chat-box{
+    left:10px;
+    right:10px;
+    width:auto;
+}
+}
 </style>
 
 <body>
+
+<!-- ================= LOADER ================= -->
+
 <div id="loader">
-
-<div class="spinner"></div>
-
-<h2>
-WebVolt Engineering 🚀
-</h2>
-
+    <div class="spinner"></div>
+    <h2 class="loading-title">⚡ WebVolt Engineering</h2>
 </div>
+
+<!-- ================= NAVIGATION ================= -->
 
 <nav class="navbar">
 
     <div class="logo">
-        ⭐ WebVolt
+        ⚡ <span>WebVolt</span>
     </div>
 
     <div class="nav-links" id="menu">
+
         <a href="#home">Home</a>
+
         <a href="#about">About</a>
+
         <a href="#services">Services</a>
+
         <a href="#projects">Projects</a>
+
+        <a href="#pricing">Pricing</a>
+
         <a href="#contact">Contact</a>
+
     </div>
 
     <div class="menu-btn" onclick="showMenu()">
@@ -573,751 +772,1259 @@ WebVolt Engineering 🚀
 
 </nav>
 
+<!-- ================= HERO ================= -->
+
 <header id="home">
 
-    <video autoplay muted loop id="bg-video">
+    <video autoplay muted loop playsinline id="bg-video">
+
         <source src="hero-video.mp4" type="video/mp4">
+
     </video>
 
     <div class="hero-content">
 
-        <img src="logo.png" width="180">
+        <img src="logo.png"
+             alt="WebVolt Engineering Logo"
+             class="hero-logo">
 
-        <h1>⭐ WebVolt Engineering</h1>
+        <h1>
+
+            ⚡
+            <span class="brand-name">
+                WebVolt Engineering
+            </span>
+
+        </h1>
 
         <h2>
-<span id="typing"></span><span class="cursor">|</span>
-</h2>
+
+            <span id="typing"></span>
+
+            <span class="cursor">|</span>
+
+        </h2>
 
         <p>
-            We design websites, create digital content, and help brands grow online.
+
+            We build beautiful, fast, secure and responsive websites that help businesses, entrepreneurs and professionals grow online.
+
+            From portfolio websites to complete business solutions, WebVolt Engineering delivers quality, speed and innovation.
+
         </p>
 
-        <a href="#contact">
-            <button class="hero-btn">🚀 Start Your Project</button>
-        </a>
+        <div class="hero-buttons">
 
-        <a href="Ojiako_Victor_Chidera_CV.pdf" download>
-            <button class="hero-btn">📄 Download My CV</button>
-        </a>
+            <a href="#contact">
 
-        <button class="hero-btn" onclick="darkMode()">
-🌙 Dark Mode
-</button>
+                <button class="hero-btn primary-btn">
 
-        <p>
-            Visitors:
-            <span id="count">0</span>
+                    🚀 Start Your Project
+
+                </button>
+
+            </a>
+
+            <a href="Ojiako_Victor_Chidera_CV.pdf" download>
+
+                <button class="hero-btn secondary-btn">
+
+                    📄 Download My CV
+
+                </button>
+
+            </a>
+
+        </div>
+
+        <button
+            id="modeBtn"
+            class="hero-btn mode-btn"
+            onclick="darkMode()">
+
+            🌙 Dark Mode
+
+        </button>
+
+        <div class="hero-stats">
+
+            <div class="stat-box">
+
+                <h3 class="counter" data-target="4">0</h3>
+
+                <p>Projects Completed</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3 class="counter" data-target="100">0</h3>
+
+                <p>Client Commitment</p>
+
+            </div>
+
+            <div class="stat-box">
+
+                <h3 class="counter" data-target="24">0</h3>
+
+                <p>Support Available</p>
+
+            </div>
+
+        </div>
+
+        <p class="visitor">
+
+            👥 Visitors:
+            <strong id="count">0</strong>
+
         </p>
+
+        <div class="trust">
+
+            ⭐⭐⭐⭐⭐
+
+            <p>
+
+                Trusted by Businesses Across Nigeria
+
+            </p>
+
+        </div>
 
     </div>
 
 </header>
 
-<div class="card">
+<!-- ================= ABOUT ================= -->
 
-<h2>WebVolt Engineering in Numbers</h2>
+<section class="card" id="about">
 
-<div class="stats">
+    <h2>🚀 About WebVolt Engineering</h2>
 
-<div>
-<h3 class="counter" data-target="4">0</h3>
-<p>Projects Completed</p>
-</div>
+    <img src="Ben.jpg" alt="WebVolt Engineering" width="350">
 
-<div>
-<h3 class="counter" data-target="100">0</h3>
-<p>Client Commitment</p>
-</div>
+    <p>
+        WebVolt Engineering is a modern web development company dedicated to helping businesses, entrepreneurs and professionals build a strong online presence through beautiful, responsive and high-performance websites.
+    </p>
 
-<div>
-<h3 class="counter" data-target="24">0</h3>
-<p>Support</p>
-</div>
-
-</div>
-
-<img src="Ben.jpg" width="350">
-</div>
-
-<div class="card">
-
-<h2 id="about">About WebVolt Engineering</h2>
-
-<p>
-WebVolt Engineering is a digital brand focused on website design,
-AI-assisted content creation, and helping businesses build a strong online presence.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2 id="skills">My Skills</h2>
-
-<p><i class="fa-brands fa-html5"></i> HTML5</p>
-
-<p><i class="fa-brands fa-css3-alt"></i> CSS3</p>
-
-<p><i class="fa-brands fa-js"></i> JavaScript</p>
-
-<p><i class="fa-solid fa-mobile-screen"></i> Responsive Design</p>
-
-<p><i class="fa-brands fa-github"></i> Git & GitHub</p>
-
-</div>
-
-<p>
-HTML • CSS • Website Design • AI Content Creation
-</p>
-
-<div class="card">
-
-<h2 id="projects">My Projects</h2>
-
-<div class="card">
-
-<h2>Why Choose WebVolt Engineering?</h2>
-
-<p>
-🚀 Modern Website Design
-</p>
-
-<p>
-⚡ Fast and Responsive Websites
-</p>
-
-<p>
-💡 Creative Digital Solutions
-</p>
-
-<p>
-🤝 Reliable Support For Clients
-</p>
-
-</div>
-
-<a href="project1.png" target="_blank">
-<img src="project1.png" width="250">
-</a>
-
-<h3>
-Business Website
-</h3>
-
-<p>
-A modern website design for a business.
-</p>
-
-<a href="project2.png" target="_blank">
-<img src="project2.png" width="250">
-</a>
-
-<h3>
-Portfolio Website
-</h3>
-
-<p>
-A personal website to showcase skills and services.
-</p>
-
-
-</div>
-
-<div class="project">
-
-<img src="website.jpg" width="400">
-
-<h3>🖥️ Personal Portfolio Website</h3>
-
-<p>
-A personal website I built using HTML and CSS.
-</p>
-
-<button>View Project</button>
-
-</div>
-
-<div class="card">
-
-<h2 id="services">Our Services</h2>
-
-<p><i class="fa-solid fa-code"></i> Website Development</p>
-
-<p><i class="fa-solid fa-laptop-code"></i> Portfolio Websites</p>
-
-<p><i class="fa-solid fa-store"></i> Business Websites</p>
-
-<p><i class="fa-solid fa-screwdriver-wrench"></i> Website Maintenance</p>
-
-</div>
-
-<div class="project">
-
-<img src="busin.jpg" width="450">
-
-<h3>🌐 Business Website</h3>
-
-<p>
-A simple website design idea for small businesses.
-</p>
-
-<button>View Project</button>
-
-</div>
-
-<h3>🤖 AI Content Creation</h3>
-
-<p>
-Creating digital content and social media ideas.
-</p>
-
-<a href="https://ojiakovictor12.github.io/index.html/">
-<button>View Project</button>
-
-</a>
-
-<div class="card">
-
-<h2>Who I Work With</h2>
-
-<p>🏪 Small Businesses</p>
-
-<p>🛒 Online Stores</p>
-
-<p>👨‍💼 Entrepreneurs</p>
-
-<p>🎓 Students & Professionals</p>
-
-<p>🏢 Companies Looking for a Modern Website</p>
-
-</div>
-
-<div class="card">
-
-<h2>Frequently Asked Questions</h2>
-
-<h3>How long does it take to build a website?</h3>
-<p>Most websites can be completed within a few days, depending on the project.</p>
-
-<h3>Do you create mobile-friendly websites?</h3>
-<p>Yes. Every website is designed to work well on phones, tablets, and computers.</p>
-
-<h3>Can you redesign an existing website?</h3>
-<p>Yes. I can improve the design, speed, and appearance of your current website.</p>
-
-<h3>How can I contact you?</h3>
-<p>You can contact me through WhatsApp, Telegram, or the contact form on this website.</p>
-
-</div>
-
-<div class="card">
-
-<h2>Our Services & Pricing</h2>
-
-<h3>🌐 Basic Website</h3>
-<p>Starting from ₦30,000</p>
-
-<h3>💼 Business Website</h3>
-<p>Starting from ₦80,000</p>
-
-<h3>🛒 E-commerce Website</h3>
-<p>Contact for a custom quote</p>
-
-<h3>⚡ Website Maintenance</h3>
-<p>Available Monthly</p>
-
-</div>
-
-<div class="card">
-
-<h2>Sample Testimonials</h2>
-
-<p><strong>⭐ Example Review</strong></p>
-
-<p>
-"WebVolt Engineering delivers modern, clean, and user-friendly website designs with a strong focus on quality and professionalism."
-</p>
-
-<p><em>— Sample Testimonial</em></p>
-
-<hr>
-
-<p><strong>⭐ Example Review</strong></p>
-
-<p>
-"I appreciate the attention to detail and the commitment to creating websites that are both attractive and responsive on all devices."
-</p>
-
-<p><em>— Sample Testimonial</em></p>
-
-<hr>
-
-<p><strong>⭐ Example Review</strong></p>
-
-<p>
-"From planning to design, WebVolt Engineering aims to provide reliable digital solutions that help businesses build a strong online presence.Fast communication and excellent attention to detail. I would gladly recommend WebVolt Engineering."
-</p>
-
-<p><em>— Sample Testimonial</em></p>
-
-</div>
-
-<div class="card">
-
-<h2>Meet the Founder</h2>
-
-<img src="photo.jpg" alt="Ojiako Victor" width="300">
-
-<h3>Ojiako Victor Chidera</h3>
-
-<p>
-Founder of ⭐ WebVolt Engineering
-</p>
-
-<p>
-I am passionate about building modern, responsive, and professional websites that help businesses grow online. My goal is to provide high-quality web solutions with creativity, honesty, and excellent customer service.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>Our Process</h2>
-
-<h3>1️⃣ Consultation</h3>
-<p>We discuss your ideas, goals, and website requirements.</p>
-
-<h3>2️⃣ Planning</h3>
-<p>We create a clear plan and choose the best design for your project.</p>
-
-<h3>3️⃣ Development</h3>
-<p>We build a fast, modern, and responsive website using the latest technologies.</p>
-
-<h3>4️⃣ Testing</h3>
-<p>Every page is carefully tested to ensure everything works perfectly.</p>
-
-<h3>5️⃣ Launch</h3>
-<p>Your website is published online and ready for the world to see.</p>
-
-<h3>6️⃣ Support</h3>
-<p>We provide ongoing support and updates whenever you need them.</p>
-
-</div>
-
-<div class="card">
-
-<h2>Our Vision</h2>
-
-<p>
-To become one of Nigeria's most trusted web development and engineering brands, creating innovative digital solutions that help businesses grow and succeed worldwide.
-</p>
-
-<h2>Our Mission</h2>
-
-<p>
-To deliver modern, responsive, secure, and high-quality websites while providing excellent customer service, honesty, creativity, and continuous innovation.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>Why Clients Choose WebVolt Engineering</h2>
-
-<p>✅ Professional & Modern Website Design</p>
-
-<p>⚡ Fast and Responsive Websites</p>
-
-<p>🔒 Secure and Reliable Solutions</p>
-
-<p>🎨 Creative and Attractive Designs</p>
-
-<p>📱 Mobile-Friendly on All Devices</p>
-
-<p>🤝 Friendly Customer Support</p>
-
-<p>🚀 Continuous Improvement and Innovation</p>
-
-</div>
-
-<div class="card">
-
-<h2>Our Journey</h2>
-
-<p>🚀 2026 – WebVolt Engineering was founded with a vision to build modern and professional websites.</p>
-
-<p>💻 Built our first portfolio website and began learning advanced web development.</p>
-
-<p>🌍 Working towards serving clients across Nigeria and beyond.</p>
-
-<p>🎯 Future Goal – Become one of Africa's leading web development and engineering companies.</p>
-
-</div>
-
-<div class="card">
-
-<h2>Ready to Build Your Dream Website?</h2>
-
-<p>
-Let's work together to create a fast, modern, and professional website that helps your business grow.
-</p>
-
-<a href="#contact">
-
-<button>
-🚀 Get Started Today
-</button>
-
-</a>
-
-</div>
-
-<h2 id="contact">Contact Me</h2>
-
-<p>
-I am available for website design and content creation projects.
-</p>
-
-<p><i class="fa-solid fa-phone"></i> 09169464187</p>
-
-<p><i class="fa-solid fa-envelope"></i> ojiakovictor1@gmail.com</p>
-
-<p><i class="fa-brands fa-telegram"></i> Telegram</p>
-
-<p><i class="fa-brands fa-whatsapp"></i> WhatsApp</p>
-
-</div>
-
-<section id="contact">
-
-<button>Send Message</button>
-
-<input type="text" placeholder="Your Name">
-
-<br><br>
-
-<input type="email" placeholder="Your Email">
-
-<br><br>
-
-<textarea placeholder="Your Message"></textarea>
-
-<br><br>
-
-<div class="card">
-
-<h2>Connect With Me</h2>
-
-<a href="https://t.me/t.me/Militant422">
-Telegram</a>
-
-</div>
-
-<button onclick="sendWhatsApp()">Send Message</button>
+    <p>
+        We combine creativity, technology and innovation to deliver fast, secure and mobile-friendly websites that help businesses grow successfully online.
+    </p>
 
 </section>
 
+<!-- ================= COMPANY STATS ================= -->
 
-<a href="https://wa.me/2349169464187" target="_blank" id="whatsapp">
-💬
-</a>
+<section class="card">
 
-<div id="ai-chat" onclick="openChat()">
-    🤖
-</div>
+    <h2>📊 WebVolt Engineering In Numbers</h2>
 
-<div id="chat-box">
+    <div class="stats">
+
+        <div>
+            <h3 class="counter" data-target="4">0</h3>
+            <p>Projects Completed</p>
+        </div>
+
+        <div>
+            <h3 class="counter" data-target="100">0</h3>
+            <p>Client Commitment</p>
+        </div>
+
+        <div>
+            <h3 class="counter" data-target="24">0</h3>
+            <p>Support Available</p>
+        </div>
+
     </div>
 
-<button onclick="clearChat()">Clear Chat</button>
+</section>
 
-<h3>🤖 WebVolt AI</h3>
+<!-- ================= SKILLS ================= -->
 
-<div id="chat-messages">
-<p>Hello 👋</p>
-<p>Ask me a question below.</p>
+<section class="card" id="skills">
+
+    <h2>💻 Professional Skills</h2>
+
+    <p><i class="fa-brands fa-html5"></i> HTML5</p>
+
+    <p><i class="fa-brands fa-css3-alt"></i> CSS3</p>
+
+    <p><i class="fa-brands fa-js"></i> JavaScript</p>
+
+    <p><i class="fa-solid fa-mobile-screen"></i> Responsive Web Design</p>
+
+    <p><i class="fa-brands fa-github"></i> Git & GitHub</p>
+
+    <p><i class="fa-solid fa-robot"></i> AI Integration</p>
+
+    <p><i class="fa-solid fa-globe"></i> Modern Website Development</p>
+
+</section>
+
+<!-- ================= CORE STRENGTHS ================= -->
+
+<section class="card">
+
+    <h2>🌟 Our Core Strengths</h2>
+
+    <p>⚡ Fast & Responsive Websites</p>
+
+    <p>🎨 Modern User Interface Design</p>
+
+    <p>📱 Mobile-Friendly Layouts</p>
+
+    <p>🔒 Secure & Reliable Solutions</p>
+
+    <p>🤝 Excellent Customer Support</p>
+
+    <p>🚀 Helping Businesses Grow Online</p>
+
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="card">
+
+    <h2>💎 Why Choose WebVolt Engineering?</h2>
+
+    <p>🚀 Modern Website Design</p>
+
+    <p>⚡ Fast & Responsive Websites</p>
+
+    <p>💡 Creative Digital Solutions</p>
+
+    <p>🤝 Reliable Client Support</p>
+
+</section>
+
+<!-- ================= PROJECTS ================= -->
+
+<section class="card" id="projects">
+
+    <h2>📂 Featured Projects</h2>
+
+    <a href="project1.png" target="_blank">
+        <img src="project1.png" alt="Business Website" width="250">
+    </a>
+
+    <h3>🌐 Business Website</h3>
+
+    <p>
+        A modern and professional website designed for businesses.
+    </p>
+
+    <a href="project2.png" target="_blank">
+        <img src="project2.png" alt="Portfolio Website" width="250">
+    </a>
+
+    <h3>👨‍💻 Portfolio Website</h3>
+
+    <p>
+        A clean personal portfolio for professionals and students.
+    </p>
+
+</section>
+
+<!-- ================= PERSONAL PROJECT ================= -->
+
+<section class="card">
+
+    <img src="website.jpg" alt="Portfolio Website" width="450">
+
+    <h3>🖥️ Personal Portfolio Website</h3>
+
+    <p>
+        A responsive personal portfolio built using HTML, CSS and JavaScript.
+    </p>
+
+    <button>View Project</button>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section class="card" id="services">
+
+    <h2>🛠 Our Services</h2>
+
+    <p><i class="fa-solid fa-code"></i> Website Development</p>
+
+    <p><i class="fa-solid fa-laptop-code"></i> Portfolio Websites</p>
+
+    <p><i class="fa-solid fa-store"></i> Business Websites</p>
+
+    <p><i class="fa-solid fa-screwdriver-wrench"></i> Website Maintenance</p>
+
+</section>
+
+<!-- ================= BUSINESS WEBSITE ================= -->
+
+<section class="card">
+
+    <img src="busin.jpg" alt="Business Website" width="450">
+
+    <h3>🌐 Business Website</h3>
+
+    <p>
+        Modern website solutions for companies and growing businesses.
+    </p>
+
+    <button>View Project</button>
+
+</section>
+
+<!-- ================= AI CONTENT ================= -->
+
+<section class="card">
+
+    <h2>🤖 AI Content Creation</h2>
+
+    <p>
+        Creating digital content, AI-powered ideas and social media content for businesses.
+    </p>
+
+    <a href="https://ojiakovictor12.github.io/index.html/">
+
+        <button>View Project</button>
+
+    </a>
+
+</section>
+
+<!-- ================= WHO WE WORK WITH ================= -->
+
+<section class="card">
+
+    <h2>🤝 Who We Work With</h2>
+
+    <p>🏪 Small Businesses</p>
+
+    <p>🛒 Online Stores</p>
+
+    <p>👨‍💼 Entrepreneurs</p>
+
+    <p>🎓 Students & Professionals</p>
+
+    <p>🏢 Companies Looking For Modern Websites</p>
+
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section class="card">
+
+    <h2>❓ Frequently Asked Questions</h2>
+
+    <h3>How long does it take to build a website?</h3>
+
+    <p>Most websites are completed within a few days depending on the project.</p>
+
+    <h3>Do you build mobile-friendly websites?</h3>
+
+    <p>Yes. Every website is fully responsive on phones, tablets and computers.</p>
+
+    <h3>Can you redesign my current website?</h3>
+
+    <p>Yes. We can redesign and improve your existing website.</p>
+
+    <h3>How do I contact WebVolt Engineering?</h3>
+
+    <p>You can contact us through WhatsApp, Telegram or the contact form.</p>
+
+</section>
+
+<!-- ================= PRICING ================= -->
+
+<section class="card" id="pricing">
+
+    <h2>💰 Our Services & Pricing</h2>
+
+    <h3>🌐 Basic Website</h3>
+
+    <p>Starting From ₦30,000</p>
+
+    <h3>💼 Business Website</h3>
+
+    <p>Starting From ₦80,000</p>
+
+    <h3>🛒 E-commerce Website</h3>
+
+    <p>Contact Us For A Custom Quote</p>
+
+    <h3>⚡ Website Maintenance</h3>
+
+    <p>Monthly Support Available</p>
+
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="card">
+
+    <h2>⭐ Testimonials</h2>
+
+    <p><strong>Professional • Modern • Reliable</strong></p>
+
+    <p>
+        WebVolt Engineering delivers clean, responsive and user-friendly websites with excellent attention to detail.
+    </p>
+
+    <hr>
+
+    <p>
+        Businesses appreciate our fast communication, creativity and commitment to quality.
+    </p>
+
+</section>
+
+<!-- ================= FOUNDER ================= -->
+
+<section class="card">
+
+    <h2>👨‍💻 Meet The Founder</h2>
+
+    <img src="photo.jpg" alt="Ojiako Victor Chidera" width="300">
+
+    <h3>Ojiako Victor Chidera</h3>
+
+    <p>Founder of ⭐ WebVolt Engineering</p>
+
+    <p>
+        Passionate about building modern, responsive and professional websites that help businesses grow online.
+    </p>
+
+</section>
+
+<!-- ================= PROCESS ================= -->
+
+<section class="card">
+
+    <h2>⚙️ Our Process</h2>
+
+    <p>1️⃣ Consultation</p>
+
+    <p>2️⃣ Planning</p>
+
+    <p>3️⃣ Development</p>
+
+    <p>4️⃣ Testing</p>
+
+    <p>5️⃣ Launch</p>
+
+    <p>6️⃣ Support</p>
+
+</section>
+
+<!-- ================= VISION & MISSION ================= -->
+
+<section class="card">
+
+    <h2>🎯 Our Vision</h2>
+
+    <p>
+        To become one of Nigeria's most trusted web development and engineering brands, creating innovative digital solutions that help businesses grow and succeed worldwide.
+    </p>
+
+    <h2>🚀 Our Mission</h2>
+
+    <p>
+        To deliver modern, responsive, secure and high-quality websites while providing excellent customer service, creativity, honesty and continuous innovation.
+    </p>
+
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="card">
+
+    <h2>⭐ Why Clients Choose WebVolt Engineering</h2>
+
+    <p>✅ Professional & Modern Website Design</p>
+
+    <p>⚡ Fast & Responsive Websites</p>
+
+    <p>🔒 Secure & Reliable Solutions</p>
+
+    <p>🎨 Beautiful User Interface Design</p>
+
+    <p>📱 Mobile Friendly On All Devices</p>
+
+    <p>🤝 Excellent Customer Support</p>
+
+    <p>🚀 Continuous Innovation</p>
+
+</section>
+
+<!-- ================= OUR JOURNEY ================= -->
+
+<section class="card">
+
+    <h2>🌍 Our Journey</h2>
+
+    <p>🚀 2026 — WebVolt Engineering was founded.</p>
+
+    <p>💻 Built our first professional portfolio website.</p>
+
+    <p>🌍 Expanding to serve clients across Nigeria and beyond.</p>
+
+    <p>🎯 Our goal is to become one of Africa's leading web development companies.</p>
+
+</section>
+
+<!-- ================= CALL TO ACTION ================= -->
+
+<section class="card">
+
+    <h2>🚀 Ready To Build Your Dream Website?</h2>
+
+    <p>
+
+        Let's work together to create a beautiful, responsive and professional website that grows your business.
+
+    </p>
+
+    <a href="#contact">
+
+        <button class="hero-btn">
+
+            🚀 Get Started Today
+
+        </button>
+
+    </a>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="card" id="contact">
+
+    <h2>📞 Contact WebVolt Engineering</h2>
+
+    <p>
+
+        Available for Website Development, Portfolio Websites, Business Websites and AI Content Creation.
+
+    </p>
+
+    <p><i class="fa-solid fa-phone"></i> +234 916 946 4187</p>
+
+    <p><i class="fa-solid fa-envelope"></i> ojiakovictor1@gmail.com</p>
+
+    <p><i class="fa-brands fa-telegram"></i> Telegram</p>
+
+    <p><i class="fa-brands fa-whatsapp"></i> WhatsApp</p>
+
+    <input
+        type="text"
+        id="name"
+        placeholder="Your Name">
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Your Email">
+
+    <textarea
+        id="message"
+        placeholder="Write your message..."></textarea>
+
+    <button onclick="sendWhatsApp()">
+
+        📨 Send Message
+
+    </button>
+
+    <h3 style="margin-top:30px;">
+
+        🌐 Connect With Me
+
+    </h3>
+
+    <a href="https://t.me/Militant422" target="_blank">
+
+        Telegram
+
+    </a>
+
+</section>
+
+<!-- ================= WHATSAPP ================= -->
+
+<a href="https://wa.me/2349169464187"
+
+target="_blank"
+
+id="whatsapp">
+
+💬
+
+</a>
+
+<!-- ================= AI BUTTON ================= -->
+
+<div id="ai-chat" onclick="openChat()">
+
+🤖
+
 </div>
 
-<input
-type="text"
-id="user-question"
-placeholder="Ask something...">
+<!-- ================= AI CHAT ================= -->
 
-<button onclick="askAI()">Send</button>
+<div id="chat-box">
 
-<button onclick="closeChat()">Close</button>
+    <button onclick="clearChat()">
+
+        🗑 Clear Chat
+
+    </button>
+
+    <h3>
+
+        🤖 WebVolt AI Assistant
+
+    </h3>
+
+    <div id="chat-messages">
+
+        <div class="message ai-message">
+
+            <div class="chat-icon">
+
+                🤖
+
+            </div>
+
+            <div class="bubble">
+
+                👋 Welcome to <strong>WebVolt Engineering</strong>.
+
+                <br><br>
+
+                I am your AI assistant.
+
+                <br><br>
+
+                Ask me anything about:
+
+                <br>
+
+                • Website Development
+
+                <br>
+
+                • Pricing
+
+                <br>
+
+                • Portfolio Websites
+
+                <br>
+
+                • Business Websites
+
+                <br>
+
+                • AI Content Creation
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <input
+
+        type="text"
+
+        id="user-question"
+
+        placeholder="Type your question...">
+
+    <button onclick="askAI()">
+
+        Send
+
+    </button>
+
+    <button onclick="closeChat()">
+
+        Close
+
+    </button>
 
 </div>
 
 <script>
+/*=========================================
+        WEBVOLT ENGINEERING JAVASCRIPT
+=========================================*/
 
-function showMenu(){
+document.addEventListener("DOMContentLoaded", () => {
 
-const menu=document.getElementById("menu");
+    /*=========================================
+            MOBILE MENU
+    =========================================*/
 
-if(menu.style.display==="flex"){
+    window.showMenu = function () {
 
-menu.style.display="none";
+        const menu = document.getElementById("menu");
 
-}else{
+        if (!menu) return;
 
-menu.style.display="flex";
+        if (window.innerWidth <= 768) {
 
-}
+            menu.style.display =
+                menu.style.display === "flex"
+                    ? "none"
+                    : "flex";
 
-}
+        }
 
-function sendWhatsApp() {
-    const name = document.querySelector('input[type="text"]').value;
-    const message = document.querySelector("textarea").value;
-    const phone = "2349169464187";
+    };
 
-    const text = encodeURIComponent(
-        "Hello, my name is " + name + ". " + message
-    );
+    // Hide menu after clicking a link (mobile)
 
-    window.open("https://wa.me/" + phone + "?text=" + text, "_blank");
-}
+    document.querySelectorAll("#menu a").forEach(link => {
 
-function darkMode() {
-    document.body.classList.toggle("dark-mode");
-}
+        link.addEventListener("click", () => {
 
-function goTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+            if (window.innerWidth <= 768) {
+
+                document.getElementById("menu").style.display = "none";
+
+            }
+
+        });
+
     });
-}
 
-/* Remove loader */
-window.addEventListener("load", function() {
-    setTimeout(function() {
-        const loader = document.getElementById("loader");
+    /*=========================================
+            DARK MODE
+    =========================================*/
 
-        if (loader) {
-            loader.style.display = "none";
+    const modeBtn = document.getElementById("modeBtn");
+
+    if (localStorage.getItem("theme") === "light") {
+
+        document.body.classList.add("dark-mode");
+
+        if (modeBtn) {
+
+            modeBtn.innerHTML = "☀ Light Mode";
+
         }
-    }, 3000);
-});
 
-/* Visitor counter */
-let visits = Number(localStorage.getItem("visits")) || 0;
-visits++;
-
-localStorage.setItem("visits", visits);
-
-const countElement = document.getElementById("count");
-
-if (countElement) {
-    countElement.textContent = visits;
-}
-
-/* Card animation */
-const observer = new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},{
-threshold:0.15
-});
-
-document.querySelectorAll(".card").forEach(card=>{
-
-observer.observe(card);
-
-});
-
-/* Typing effect */
-const words = [
-    "Web Developer",
-    "Electrical Engineer",
-    "Website Designer",
-    "Problem Solver"
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let typing = true;
-
-function typeEffect() {
-    const element = document.getElementById("typing");
-
-    if (!element) return;
-
-    if (typing) {
-        element.textContent =
-            words[wordIndex].substring(0, charIndex++);
-
-        if (charIndex > words[wordIndex].length) {
-            typing = false;
-            setTimeout(typeEffect, 1500);
-            return;
-        }
-    } else {
-        element.textContent =
-            words[wordIndex].substring(0, charIndex--);
-
-        if (charIndex < 0) {
-            typing = true;
-            wordIndex = (wordIndex + 1) % words.length;
-        }
     }
 
-    setTimeout(typeEffect, typing ? 100 : 50);
-}
+    window.darkMode = function () {
 
-typeEffect();
+        document.body.classList.toggle("dark-mode");
 
-/* Number counters */
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("theme", "light");
+
+            if (modeBtn) {
+
+                modeBtn.innerHTML = "☀ Light Mode";
+
+            }
+
+        } else {
+
+            localStorage.setItem("theme", "dark");
+
+            if (modeBtn) {
+
+                modeBtn.innerHTML = "🌙 Dark Mode";
+
+            }
+
+        }
+
+    };
+
+    /*=========================================
+            TYPING EFFECT
+    =========================================*/
+
+    const words = [
+
+        "Professional Website Development",
+
+        "Business Websites",
+
+        "Portfolio Websites",
+
+        "Responsive Web Design",
+
+        "AI Content Creation",
+
+        "E-Commerce Websites",
+
+        "Modern Digital Solutions"
+
+    ];
+
+    const typing = document.getElementById("typing");
+
+    let word = 0;
+
+    let letter = 0;
+
+    let deleting = false;
+
+    function typeEffect() {
+
+        if (!typing) return;
+
+        let current = words[word];
+
+        if (!deleting) {
+
+            typing.textContent = current.substring(0, letter++);
+
+            if (letter > current.length) {
+
+                deleting = true;
+
+                setTimeout(typeEffect, 1500);
+
+                return;
+
+            }
+
+        } else {
+
+            typing.textContent = current.substring(0, letter--);
+
+            if (letter < 0) {
+
+                deleting = false;
+
+                word++;
+
+                if (word >= words.length) {
+
+                    word = 0;
+
+                }
+
+            }
+
+        }
+
+        setTimeout(typeEffect, deleting ? 50 : 100);
+
+    }
+
+    typeEffect();
+
+    /*=========================================
+            VISITOR COUNTER
+    =========================================*/
+
+    const visit = document.getElementById("count");
+
+    let visits = Number(localStorage.getItem("webvoltVisitors")) || 0;
+
+    visits++;
+
+    localStorage.setItem("webvoltVisitors", visits);
+
+    if (visit) {
+
+        visit.textContent = visits;
+
+    }
+
+    /*=========================================
+            LOADER
+    =========================================*/
+
+    const loader = document.getElementById("loader");
+
+    window.addEventListener("load", () => {
+
+        setTimeout(() => {
+
+            if (loader) {
+
+                loader.style.opacity = "0";
+
+                loader.style.visibility = "hidden";
+
+            }
+
+        }, 1500);
+
+    });
+
+    /*=========================================
+            SCROLL TO TOP
+    =========================================*/
+
+    const topBtn = document.getElementById("topBtn");
+
+    window.goTop = function () {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    };
+
+    window.addEventListener("scroll", () => {
+
+        if (!topBtn) return;
+
+        if (window.scrollY > 400) {
+
+            topBtn.style.display = "block";
+
+        } else {
+
+            topBtn.style.display = "none";
+
+        }
+
+    });
+
+});
+
+/*=========================================
+        COUNTER ANIMATION
+=========================================*/
+
 const counters = document.querySelectorAll(".counter");
 
-counters.forEach(function(counter) {
-    const target = Number(counter.dataset.target);
-    let number = 0;
+const counterObserver = new IntersectionObserver((entries) => {
 
-    const interval = setInterval(function() {
-        number++;
+    entries.forEach(entry => {
 
-        if (number >= target) {
-            number = target;
-            clearInterval(interval);
+        if (entry.isIntersecting) {
+
+            const counter = entry.target;
+
+            const target = Number(counter.dataset.target);
+
+            let current = 0;
+
+            const increment = Math.max(1, Math.ceil(target / 100));
+
+            const timer = setInterval(() => {
+
+                current += increment;
+
+                if (current >= target) {
+
+                    current = target;
+
+                    clearInterval(timer);
+
+                }
+
+                if (target === 100) {
+
+                    counter.textContent = current + "%";
+
+                } else if (target === 24) {
+
+                    counter.textContent = current + "/7";
+
+                } else {
+
+                    counter.textContent = current + "+";
+
+                }
+
+            }, 20);
+
+            counterObserver.unobserve(counter);
+
         }
 
-        if (target === 100) {
-            counter.textContent = number + "%";
-        } else if (target === 24) {
-            counter.textContent = number + "/7";
-        } else {
-            counter.textContent = number + "+";
-        }
-    }, 40);
+    });
+
+}, {
+
+    threshold: 0.4
+
 });
 
-/* AI Chat */
-function askAI() {
-    const input = document.getElementById("user-question");
-    const chatMessages = document.getElementById("chat-messages");
+counters.forEach(counter => {
 
-    const question = input.value.trim();
+    counterObserver.observe(counter);
 
-    if (question === "") {
+});
+
+
+/*=========================================
+        SCROLL ANIMATION
+=========================================*/
+
+const cards = document.querySelectorAll(".card");
+
+const cardObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+}, {
+
+    threshold: 0.15
+
+});
+
+cards.forEach(card => {
+
+    cardObserver.observe(card);
+
+});
+
+
+/*=========================================
+        WHATSAPP MESSAGE
+=========================================*/
+
+window.sendWhatsApp = function () {
+
+    const name = document.getElementById("name")?.value.trim() || "";
+
+    const email = document.getElementById("email")?.value.trim() || "";
+
+    const message = document.getElementById("message")?.value.trim() || "";
+
+    if (name === "" || message === "") {
+
+        alert("Please enter your name and message.");
+
         return;
+
     }
 
-    const lowerQuestion = question.toLowerCase();
+    const text =
 
-    let answer =
-        "Sorry, I don't understand that question yet. Please ask about our services, prices, websites, location, or contact details.";
+`Hello WebVolt Engineering,
 
-    if (lowerQuestion.includes("hello") || lowerQuestion.includes("hi")) {
-        answer =
-            "Hello! 👋 Welcome to WebVolt Engineering. How can I help you?";
-    }
+Name: ${name}
 
-    else if (lowerQuestion.includes("service")) {
-        answer =
-            "We build business websites, portfolio websites, and offer website maintenance.";
-    }
+Email: ${email}
 
-    else if (lowerQuestion.includes("price")) {
-        answer =
-            "Our website prices start from ₦30,000.";
-    }
+Message:
+${message}`;
 
-    else if (lowerQuestion.includes("contact")) {
-        answer =
-            "You can contact us through WhatsApp or email.";
-    }
+    const url =
 
-    else if (lowerQuestion.includes("name")) {
-        answer =
-            "My name is WebVolt AI. 🤖";
-    }
+`https://wa.me/2349169464187?text=${encodeURIComponent(text)}`;
 
-    else if (lowerQuestion.includes("website")) {
-        answer =
-            "We design modern, responsive, and mobile-friendly websites for businesses and individuals.";
-    }
+    window.open(url, "_blank");
 
-    else if (lowerQuestion.includes("portfolio")) {
-        answer =
-            "Yes! We create professional portfolio websites to showcase your skills, projects, and experience.";
-    }
+};
 
-    else if (lowerQuestion.includes("maintenance")) {
-        answer =
-            "Yes, we provide website maintenance and support services.";
-    }
 
-    else if (lowerQuestion.includes("location")) {
-        answer =
-            "WebVolt Engineering is based in Imo State, Nigeria.";
-    }
+/*=========================================
+        AI CHAT
+=========================================*/
 
-    else if (
-        lowerQuestion.includes("founder") ||
-        lowerQuestion.includes("owner")
-    ) {
-        answer =
-            "WebVolt Engineering was founded by Ojiako Victor Chidera.";
-    }
+const chatBox = document.getElementById("chat-box");
 
-    else if (lowerQuestion.includes("thank")) {
-        answer =
-            "You're welcome! 😊 I'm happy to help.";
-    }
+const chatMessages = document.getElementById("chat-messages");
 
-    chatMessages.innerHTML += `
-        <div class="message user-message">
-            <div class="chat-icon">👤</div>
-            <div class="bubble">${question}</div>
-        </div>
-    `;
-
-    chatMessages.innerHTML += `
-        <div class="message ai-message">
-            <div class="chat-icon">🤖</div>
-            <div class="bubble">${answer}</div>
-        </div>
-    `;
-
-    input.value = "";
-
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-function openChat() {
-    document.getElementById("chat-box").style.display = "block";
-}
-
-function closeChat() {
-    document.getElementById("chat-box").style.display = "none";
-}
-
-function clearChat() {
-    document.getElementById("chat-messages").innerHTML =
-        "<p>Hello 👋</p><p>Ask me a question below.</p>";
-}
-
-/* Press Enter to send */
 const questionInput = document.getElementById("user-question");
 
+
+window.openChat = function () {
+
+    if (chatBox) {
+
+        chatBox.style.display = "block";
+
+    }
+
+}
+
+
+window.closeChat = function () {
+
+    if (chatBox) {
+
+        chatBox.style.display = "none";
+
+    }
+
+}
+
+
+window.clearChat = function () {
+
+    if (!chatMessages) return;
+
+    chatMessages.innerHTML = `
+
+<div class="message ai-message">
+
+<div class="chat-icon">🤖</div>
+
+<div class="bubble">
+
+Hello 👋
+
+Welcome back to <strong>WebVolt Engineering</strong>.
+
+How can I help you today?
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/*=========================================
+        SIMPLE AI RESPONSES
+=========================================*/
+
+window.askAI = function () {
+
+    if (!questionInput || !chatMessages) return;
+
+    const question = questionInput.value.trim();
+
+    if (question === "") return;
+
+    chatMessages.innerHTML += `
+
+<div class="message user-message">
+
+<div class="bubble">
+
+${question}
+
+</div>
+
+</div>
+
+`;
+
+    let answer =
+
+"Thanks for contacting WebVolt Engineering. Please contact us directly for more information.";
+
+    const q = question.toLowerCase();
+
+    if (q.includes("price") || q.includes("cost")) {
+
+        answer =
+
+"Our Basic Website starts from ₦30,000 while Business Websites start from ₦80,000.";
+
+    }
+
+    else if (q.includes("website")) {
+
+        answer =
+
+"We build Portfolio Websites, Business Websites, Company Websites and E-commerce Websites.";
+
+    }
+
+    else if (q.includes("contact")) {
+
+        answer =
+
+"You can contact us on WhatsApp: +2349169464187 or Email: ojiakovictor1@gmail.com.";
+
+    }
+
+    else if (q.includes("hello") || q.includes("hi")) {
+
+        answer =
+
+"Hello 👋 Welcome to WebVolt Engineering. How can I help you today?";
+
+    }
+
+    else if (q.includes("service")) {
+
+        answer =
+
+"Our services include Website Development, Website Maintenance, Portfolio Websites, Business Websites and AI Content Creation.";
+
+    }
+
+    else if (q.includes("thanks")) {
+
+        answer =
+
+"You're welcome. We look forward to working with you.";
+
+    }
+
+    setTimeout(() => {
+
+        chatMessages.innerHTML += `
+
+<div class="message ai-message">
+
+<div class="chat-icon">
+
+🤖
+
+</div>
+
+<div class="bubble">
+
+${answer}
+
+</div>
+
+</div>
+
+`;
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    }, 500);
+
+    questionInput.value = "";
+
+}
+
+
+/*=========================================
+        ENTER KEY
+=========================================*/
+
 if (questionInput) {
-    questionInput.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
+
+    questionInput.addEventListener("keypress", function (e) {
+
+        if (e.key === "Enter") {
+
             askAI();
+
         }
+
     });
+
 }
 
 </script>
